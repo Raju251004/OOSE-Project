@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserLogin</title>
+    <link rel="stylesheet" href="userlogin.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>WELCOME TO PASSPORT AUTOMATION SYSTEM</h1>
+        </div>
+        <div class="content">
+            <form id="loginForm">
+                <h1>USER SIGN IN</h1>
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <p>If you are an admin? <a href="/Admin/Adminlogin.html">Admin Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            let inputs = document.querySelectorAll('input');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (input.value.trim() === '') {
+                    isValid = false;
+                    input.style.border = '2px solid red';
+                } else {
+                    input.style.border = '1px solid #ccc';
+                }
+            });
+
+            if (!isValid) {
+                e.preventDefault();
+                alert('Please fill all fields.');
+            } else {
+                e.preventDefault();
+                alert('Login successful for User');
+
+                inputs.forEach(input => {
+                    input.value = '';  
+                });
+
+                window.location.href = "UserHomePage.html";
+            }
+        });
+    </script>
+</body>
+</html>

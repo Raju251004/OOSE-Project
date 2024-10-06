@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Passport Status</title>
+    <link rel="stylesheet" href="UserCheckStatus.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Check Passport Application Status</h2>
+        <form id="statusForm">
+            <label for="applicationNo">Enter Application Number:</label>
+            <input type="text" id="applicationNo" name="applicationNo" placeholder="Enter your application number" required>
+            <button type="submit">Check Status</button>
+        </form>
+
+        <div id="statusResult" class="hidden">
+            <h3>Application Status</h3>
+            <p><strong>Application No:</strong> <span id="displayApplicationNo"></span></p>
+            <p><strong>Status:</strong> <span id="displayStatus"></span></p>
+            <p><strong>Verification Status:</strong> <span id="displayVerification"></span></p>
+            <p><strong>Issue Date:</strong> <span id="displayIssueDate"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('statusForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const applicationNo = document.getElementById('applicationNo').value;
+    
+    const applicationData = {
+        "": {
+            status: "",
+            verification: "",
+            issueDate: ""
+        },
+        "": {
+            status: "",
+            verification: "",
+            issueDate: ""
+        },
+        "": {
+            status: "",
+            verification: "",
+            issueDate: ""
+        }
+    };
+    
+    if (applicationData[applicationNo]) {
+        document.getElementById('displayApplicationNo').textContent = applicationNo;
+        document.getElementById('displayStatus').textContent = applicationData[applicationNo].status;
+        document.getElementById('displayVerification').textContent = applicationData[applicationNo].verification;
+        document.getElementById('displayIssueDate').textContent = applicationData[applicationNo].issueDate;
+        
+        document.getElementById('statusResult').classList.remove('hidden');
+    } else {
+        alert('Application number not found!');
+    }
+});
+
+    </script>
+</body>
+</html>

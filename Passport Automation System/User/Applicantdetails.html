@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicant Details Form</title>
+    <link rel="stylesheet" href="Applicantdetails.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Applicant Details</h2>
+        <form class="applicant-form">
+            <div class="row">
+                <div class="column">
+                    <label for="applicationNo">Application No</label>
+                    <input type="text" id="applicationNo" name="applicationNo">
+                    
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name">
+                    
+                    <label for="fatherName">Father Name</label>
+                    <input type="text" id="fatherName" name="fatherName">
+                    
+                    <label for="dob">DOB</label>
+                    <input type="date" id="dob" name="dob">
+                    
+                    <label for="permanentAddress">Permanent Address</label>
+                    <textarea id="permanentAddress" name="permanentAddress"></textarea>
+                    
+                    <label for="temporaryAddress">Temporary Address</label>
+                    <textarea id="temporaryAddress" name="temporaryAddress"></textarea>
+                </div>
+                <div class="column">
+                    <label for="emailId">Email Id</label>
+                    <input type="email" id="emailId" name="emailId">
+                    
+                    <label for="panNo">PAN No</label>
+                    <input type="text" id="panNo" name="panNo">
+                    
+                    <label for="phoneNo">Phone No</label>
+                    <input type="text" id="phoneNo" name="phoneNo">
+                    
+                    <label for="userName">User Name</label>
+                    <input type="text" id="userName" name="userName">
+                    
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                </div>
+            </div>
+            <div class="submit-row">
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+    let inputs = document.querySelectorAll('input, textarea');
+    let isValid = true;
+
+    inputs.forEach(input => {
+        if (input.value.trim() === '') {
+            isValid = false;
+            input.style.border = '2px solid red';
+        } else {
+            input.style.border = '1px solid #ccc';
+        }
+    });
+
+    if (!isValid) {
+        e.preventDefault();
+        alert('Please fill all fields.');
+    } else {
+        e.preventDefault();
+        alert('Your details have been submitted successfully.');
+        inputs.forEach(input => {
+            input.value = '';  
+        });
+        window.location.href = 'UserHomePage.html';
+    }
+});
+</script>
+</html>

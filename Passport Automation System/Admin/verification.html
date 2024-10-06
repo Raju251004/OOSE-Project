@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin View Applicant Details</title>
+    <link rel="stylesheet" href="verification.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Applicant Details</h2>
+        <div class="result">
+            <p><strong>Application No:</strong> <span id="displayApplicationNo"></span></p>
+            <p><strong>Name:</strong> <span id="displayName"></span></p>
+            <p><strong>Father Name:</strong> <span id="displayFatherName"></span></p>
+            <p><strong>Date of Birth:</strong> <span id="displayDob"></span></p>
+            <p><strong>Permanent Address:</strong> <span id="displayPermanentAddress"></span></p>
+            <p><strong>Temporary Address:</strong> <span id="displayTemporaryAddress"></span></p>
+            <p><strong>Email Id:</strong> <span id="displayEmailId"></span></p>
+            <p><strong>PAN No:</strong> <span id="displayPanNo"></span></p>
+            <p><strong>Phone No:</strong> <span id="displayPhoneNo"></span></p>
+            <p><strong>User Name:</strong> <span id="displayUserName"></span></p>
+            <p><strong>Password:</strong> <span id="displayPassword"></span></p>
+            <button id="btn" onclick="verify()">Verify</button>
+            <button id="btn2" onclick="verify1()">Store Verification</button>
+            <button id="btn3" onclick="verify2()">Issue Passport</button>
+            <button id="btn4" onclick="verification3()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+        const applicationDetails = {
+            applicationNo: "",
+            name: "",
+            fatherName: "",
+            dob: "",
+            permanentAddress: "",
+            temporaryAddress: "",
+            emailId: "",
+            panNo: "",
+            phoneNo: "",
+            userName: "",
+            password: ""
+        };
+
+        document.getElementById('displayApplicationNo').textContent = applicationDetails.applicationNo;
+        document.getElementById('displayName').textContent = applicationDetails.name;
+        document.getElementById('displayFatherName').textContent = applicationDetails.fatherName;
+        document.getElementById('displayDob').textContent = applicationDetails.dob;
+        document.getElementById('displayPermanentAddress').textContent = applicationDetails.permanentAddress;
+        document.getElementById('displayTemporaryAddress').textContent = applicationDetails.temporaryAddress;
+        document.getElementById('displayEmailId').textContent = applicationDetails.emailId;
+        document.getElementById('displayPanNo').textContent = applicationDetails.panNo;
+        document.getElementById('displayPhoneNo').textContent = applicationDetails.phoneNo;
+        document.getElementById('displayUserName').textContent = applicationDetails.userName;
+        document.getElementById('displayPassword').textContent = applicationDetails.password;
+};
+        document.getElementById('btn')
+        function verify(){
+            alert("Applicant Details Verified...");
+        }
+        document.getElementById('btn2')
+        function verify1(){
+            alert("Verfication Confirmation Updated...");
+        }
+        document.getElementById('btn3')
+        function verify2(){
+            alert("PassPort Issued...");
+        }
+        document.getElementById('btn4')
+        function verification3(){
+            alert("Previous Applicant Details are updated...");
+        }
+    </script>
+</body>
+</html>
